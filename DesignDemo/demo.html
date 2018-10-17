@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Responsive Websites - Techniken
+    </title>
+    <link id="css" rel="stylesheet" href="no.css">
+    <!-- Seite weiterladen während Skript eingelesen wird-->
+    <script src="demo.js" async></script>
+  </head>
+  <body>
+    <header>
+        <h1>
+            Responsive Websites - Techniken &lt;header&gt;
+        </h1> 
+    </header>
+    <main>
+      <h2> Trennung von Inhalt, Präsentation und Verhalten &lt;main&gt;</h2>
+        <img src="trennung.png" alt="HTML, CSS, Javascript">
+        <ul style="margin-top:5em; padding-left:3em;">
+            <li>HTML = Inhalt</li>
+            <li>CSS = Präsentation</li>
+            <li>Javascript = Verhalten</li>
+        </ul>
+    </main>
+    <div class="flexdesign">
+        <nav id="navigation" class="flex-item">
+            <ul style="list-style: none">
+              <li>Navigation &lt;nav&gt;</li>
+              <li><a href="demo.html">Startseite</a></li>
+              <li><a href="http://www.csszengarden.com/">Was kann CSS?</a></li>
+            </ul>
+        </nav>
+        <article class="flex-item">
+            <h3>Responsive Webdesign&lt;article&gt;</h3>
+            <aside id="anmerkung">
+                <h3>Anmerkung &lt;aside&gt;</h3>
+                <p>
+                    Float nur auf größeren Bildschirmen
+                </p>
+            </aside>            
+            <p>
+                Nur mit Responsive Webdesign kann eine positive Nutzererfahrung auf den 
+                meisten der heute verfügbaren unterschiedlichen Geräten, wie PC, Laptop, 
+                Smartphones, Tablets etc. erreicht werden.
+            </p>
+        </article>
+    </div>
+    <div>
+        <button id="btn_togglecss">Toggle CSS</button>
+        <button id ="btn_togglequery">Toggle Media Query</button>
+    </div>
+    </body>
+</html>

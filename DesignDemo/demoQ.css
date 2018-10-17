@@ -1,0 +1,141 @@
+﻿/* Universalselektor - überall Blocksatz */
+* {text-align: justify}
+
+/* Allgemeine Einstellungen, gelten für alle Elemente mit diesem Namen*/
+p { 
+    text-align: justify; 
+    font-family: sans-serif; 
+    font-size:1.2em
+}
+
+h1 { 
+    font-size: 2.3em; 
+    font-family: cursive;
+    text-align: center;
+}
+
+h2 { 
+    font-size: 1.8em; 
+    font-family: cursive;
+    text-align: center;
+}
+
+h3 { 
+    font-size: 1.3em; 
+    text-align: center; 
+}
+
+li { font-size: 1.2em;}
+
+body {background-image: url(bild1.jpg)}
+
+header {
+    background-color: #fdfcf3; 
+    margin: 0.7em; 
+    padding: .5em;
+}
+
+button {
+    font-size: 1.3em;
+    width: 15em;
+    height: 7em;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.6);
+}
+
+main {
+    background: #e6f2f7;
+	margin: 0.7em;
+	padding: .5em;
+    min-height: 23em;
+}
+
+/* Kindselektor */
+main img {
+    width: 15em;
+    height: 15em;
+}
+
+/* Eigenschaften, die verschiedene Elemente gemeinsam haben */
+.flexdesign, header, main, button {
+    opacity: 0.7;   
+}
+
+.flex-item, header, main, #anmerkung, button {
+    margin: 0.6em;
+    border: 1px solid;  
+	border-radius: 0.5em;   
+    background: #e6f2f7;
+}
+
+/* Überschreiben des globalen Einstellung Blocksatz für Buttons */
+button {
+    text-align: center;
+}
+
+/* Spezifische Einstellungen für einzelne Elemente => ID und Klassenselektoren */
+
+/* Nachfahrenselektor */
+.flexdesign > article {
+	background: #fdfcf3;
+}
+
+.flex-item {
+	margin: .5em;
+	padding: .5em;
+ 	background: #ffebe6;
+}
+
+#navigation {
+    flex-basis: 30%;
+    min-width: 15em;
+    height: 8em;
+} 
+	
+#anmerkung {
+  border-color: #bbc5a7;
+  margin: 1em;
+  padding: 0.2em;
+  width:30%;
+  min-width: 10em;
+}
+#anmerkung h3 {
+  background-color: #bbc5a7;
+  color: white;
+  margin: 0 0 0.5em;
+}
+/* Einstellungen, die erst bei einer Anzeige mit einer Breite von mindestens 40 Zeichen der aktuellen Schriftgröße wirken */
+@media (min-device-width: 40em) {
+    *{
+        padding: 0;
+        margin: 0;
+    }    
+    body,html{
+        max-width: 70em;
+        margin: 0 auto;
+    }
+    
+    main {
+        min-width: 35em;
+    }
+    
+    main ul{
+        margin-left: 3em;
+    }
+    
+    main img {
+        float: right;
+        margin-right: 20em;
+        margin-top: 2em;
+    }    
+    
+    #anmerkung {
+        float:right;
+    }
+    .flexdesign {
+      display: flex;
+      min-width: 35em;
+    }
+    .flexdesign article {
+        min-width: 27em;
+    }
+}
