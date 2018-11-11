@@ -15,6 +15,8 @@
   	var video = document.querySelector('video');
 	
 	var errorCallback = function(e) {
+        var errorText = document.createTextNode('Keine Kamera vorhanden!')
+        document.querySelector('body').appendChild(errorText);
 		// User rejected camera request. Handle appropriately.
 	};
 
@@ -29,7 +31,8 @@
 			video.src = window.URL.createObjectURL(stream);
 		}, errorCallback);
 	} else {
-	  video.src = 'somevideo.webm'; // fallback.
+        var errorText = document.createTextNode('getUserMedia nicht unterstützt!')
+        document.querySelector('body').appendChild(errorText);
 	}
 </script>
 
