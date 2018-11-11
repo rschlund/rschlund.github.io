@@ -79,6 +79,10 @@ button {
     opacity: 0.7; 
 }
 
+nav.flex-item > ul {
+	list-style: none;
+}
+
 .flex-item {
     margin: .6em;
 	padding: .5em;
@@ -88,11 +92,11 @@ button {
 }
 
 #navigation {
-    flex:1 1 0%;
+    flex:1;
     min-width: 9em;
 } 
 #myArticle {
-    flex:3 1 0%;
+    flex:3;
 }
 	
 #anmerkung {
