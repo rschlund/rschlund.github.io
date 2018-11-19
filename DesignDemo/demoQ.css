@@ -6,48 +6,39 @@ p {
     font-family: sans-serif; 
     font-size:1.2em
 }
-
 h1 { 
     font-size: 2.3em; 
     font-family: cursive;
     text-align: center;
 }
-
 h2 { 
     font-size: 1.8em; 
     font-family: cursive;
     text-align: center;
 }
-
 h3 { 
     font-size: 1.3em; 
     text-align: center; 
 }
-
 li { font-size: 1.2em;}
-
 body {background-image: url(back.jpg)}
-
 header {
     background-color: #fdfcf3; 
     margin: 0.7em; 
     padding: .5em;
 }
-
 button {
     font-size: 1.3em;
     width: 15em;
     height: 7em;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.6);
 }
-
 main {
     background: #e6f2f7;
 	margin: 0.7em;
 	padding: .5em;
     min-height: 23em;
 }
-
 /* Nachfahrenselektor */
 main img {
     width: 15em;
@@ -58,7 +49,6 @@ main img {
 header, main, button {
     opacity: 0.7;   
 }
-
 header, main, #anmerkung, button {
     margin: 0.6em;
     border: 1px solid;  
@@ -66,23 +56,16 @@ header, main, #anmerkung, button {
     background: #e6f2f7;
 }
 
-/* Überschreiben des globalen Einstellung Blocksatz für Buttons */
+/* Überschreiben der globalen Blocksatzeinstellung */
 button {
     text-align: center;
 }
 
 /* Spezifische Einstellungen für einzelne Elemente => ID und Klassenselektoren */
-
 /* Kindselektor */
-.flexdesign > article {
-	background: #fdfcf3;
-    opacity: 0.7; 
-}
-
 nav.flex-item > ul {
 	list-style: none;
 }
-
 .flex-item {
     margin: .6em;
 	padding: .5em;
@@ -90,15 +73,14 @@ nav.flex-item > ul {
 	border-radius: 0.5em;   
  	background: #ffebe6;
 }
-
-#navigation {
+.flex-item#navigation {
     flex:1;
     min-width: 9em;
 } 
-#myArticle {
+.flex-item#myArticle {
     flex:3;
-}
-	
+	min-width: 20em;
+}	
 #anmerkung {
   border-color: #bbc5a7;
   margin: 1em;
@@ -120,22 +102,22 @@ nav.flex-item > ul {
     body,html{
         max-width: 70em;
         margin: 0 auto;
-    }
-    
+    }   
     main {
         min-width: 35em;
     }
-    
+/* Nachfahrenselektor */	
     main ul{
         margin-left: 3em;
+		margin-top: 5em; 
+		padding-left:3em;
     }
-    
-    main img {
+/* Nachbarselektor */
+    main>h2 + img {
         float: right;
         margin-right: 20em;
         margin-top: 2em;
-    }    
-    
+    }     
     #anmerkung {
         float:right;
     }
@@ -143,8 +125,5 @@ nav.flex-item > ul {
       display: flex;
       min-height: 10em;
       max-height: 30em;
-    }
-    .flexdesign article {
-        min-width: 20em;
     }
 }
