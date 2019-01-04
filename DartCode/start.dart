@@ -19,7 +19,7 @@ class TutorialHome extends StatelessWidget {
           title: new Text("Counter"),
         ),
         body:new Center(
-            child:new Counter(),
+          child:new Counter(),
         ),
       ),
     );
@@ -43,14 +43,15 @@ class _CounterState extends State<Counter> {
   @override
   Widget build(BuildContext context) {
     return new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text(
-            'You have pushed the button this many times:',
-            ),
-            new CounterDisplay(count : _counter),
-            new ChangeCounterButton(onPressed: _increment),
-          ],
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        new Text(
+          'You have pushed the button this many times:',
+        ),
+        new CounterDisplay(count : _counter),
+        new Container(height:20.0),
+        new ChangeCounterButton(onPressed: _increment),
+      ],
     );
   }
 }
