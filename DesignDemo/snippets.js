@@ -55,18 +55,10 @@ var errorCallback = function(e) {
 };
 
 // Ensure cross-browser functionality.
-navigator.getUserMedia  = navigator.getUserMedia ||
-						  navigator.webkitGetUserMedia ||
-						  navigator.mozGetUserMedia ||
-						  navigator.msGetUserMedia;
+navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+  .then(stream => video.srcObject = stream)
+  .catch(e => log("<p>Kamera nicht benutzbar!</p>"));
 
-if (navigator.getUserMedia) {
-	navigator.getUserMedia({audio: true, video: true}, function(stream) {
-		video.src = window.URL.createObjectURL(stream);
-	}, errorCallback);
-} else {
-	var errorText = "<p>getUserMedia nicht unterstützt!</p>"
-	document.querySelector("#camera").innerHTML = errorText;
-}
 /******************************************************/
 	
+var log = msg => document.querySelector('video').innerHTML = msg;	
