@@ -46,7 +46,7 @@ window.addEventListener("deviceorientation", function(event) {
 /******************************************************/
 /****************** Kamera **************************/
 // Reference to video element.
-var video = document.querySelector('video');
+var video = document.querySelector("#video");
 
 var errorCallback = function(e) {
 	var errorText = "<p>Keine Kamera vorhanden!</p>"
@@ -57,8 +57,6 @@ var errorCallback = function(e) {
 // Ensure cross-browser functionality.
 navigator.mediaDevices.getUserMedia({ video: true, audio: true })
   .then(stream => video.srcObject = stream)
-  .catch(e => log("<p>Kamera nicht benutzbar!</p>"));
+  .catch(e => document.querySelector('#camera').innerHTML = "<p>Kamera nicht benutzbar!</p>");
 
 /******************************************************/
-	
-var log = msg => document.querySelector('video').innerHTML = msg;	
