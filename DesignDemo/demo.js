@@ -1,5 +1,5 @@
 /* Element verändern durch Austausch */
-function switchCss(){
+function switchNoCSS(){
 	
 	/* Zu ersetzender Link, Zugriff über ID*/
     var oldlink = document.getElementById("css");
@@ -14,10 +14,10 @@ function switchCss(){
     newlink.setAttribute("type", "text/css");
     
 	/* Nächste CSS-Datei wählen */
-	if(href == "no.css")
-		newlink.setAttribute("href", "demoQ.css");
-	else
+	if(href != "no.css")
 		newlink.setAttribute("href", "no.css");    
+	else
+		newlink.setAttribute("href", "demoQ.css");
 	
 	/* Den alten Link durch neuen ersetzen */
 	var parent = oldlink.parentNode;
@@ -25,7 +25,7 @@ function switchCss(){
 }
 
 /* Element verändern durch Wertzuweisung */
-function switchMediaQuery(){
+function switchReset(newcss){
 	
 	/* Zu ersetzender Link, Zugriff über ID*/
     var oldlink = document.getElementById("css");
@@ -33,25 +33,49 @@ function switchMediaQuery(){
     var href = oldlink.getAttribute("href");
     
 	/* Nächste CSS-Datei wählen */
-	if(href == "demoQ.css")
-		oldlink.setAttribute("href", "demo.css");
+	if(href != newcss)
+		oldlink.setAttribute("href", newcss);
 	else
 		oldlink.setAttribute("href", "demoQ.css");
 }
 
+/*********    CSS togglen **************/
 /* Zugriff auf Element über ID */
-var toggle  = document.getElementById('btn_togglecss');
+var togglecss  = document.getElementById('btn_togglecss');
 /* Klick Event Listener hinzufügen */
-toggle.addEventListener ('click',
+togglecss.addEventListener ('click',
     function() {           // anonyme Funktion
-      switchCss('');  
+      switchNoCSS();  
     }, 
     true);
-/* Zugriff auf Element über ID */	
-toggle  = document.getElementById('btn_togglequery');
+
+/*********    Reset.css togglen **************/
+/* Zugriff auf Element über ID */
+var togglereset  = document.getElementById('btn_togglereset');
 /* Klick Event Listener hinzufügen */
-toggle.addEventListener ('click',
+togglereset.addEventListener ('click',
     function() {           // anonyme Funktion
-      switchMediaQuery('query');  
+      switchReset("reset.css");  
     }, 
     true);
+
+
+/* Viewport Breite */
+jQuery(document).ready(function () { 
+	
+	//////////////////////////////////////////////////////
+	// Aktuelle Viewport-Breite anzeigen
+	//////////////////////////////////////////////////////
+	
+	// neues Element als erstes im Body-Tag einfuegen, DIV-Element mit Attributen und Eventhandler erzeugen
+	$( "body" ).prepend($('<div/>', { 'id': 'js-viewport-breitenanzeiger', 'text': 'Viewport: ' + $(window).width()/parseFloat($("body").css("font-size")) + ' em'}));
+	
+	//////////////////////////////////////////////////////
+	// Event-Handler (beim Aendern der Fenstergroesse 
+	// Viewport-Daten in DIV-Element-Textknoten schreiben) 
+	//////////////////////////////////////////////////////
+	$( window ).resize(function() { 
+		$('#js-viewport-breitenanzeiger').text("Viewport: " + $(window).width()/parseFloat($("body").css("font-size")) + "em");
+	});
+
+});	
